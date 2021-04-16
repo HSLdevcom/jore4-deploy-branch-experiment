@@ -42,3 +42,12 @@ git merge --no-ff test
 ## All branches
 
 ![all](./images/all.png "All branches")
+
+# Observations
+
+- The "all branches" view gets complicated quite fast, but individual `dev`/`test`/`prod` branches look ok
+- You can edit the commit message when performing a merge, e.g. for adding some semantic meaning to the merge:
+  - "Merge for release 1.2.3"
+- Plain `git rebase` will discard merge commits
+  - If you accidentally make a local commit to e.g. `dev` branch and use `rebase` to remove it, you might accidentally also remove the "merge branch 'master' into dev" -commits.
+  - `git rebase -i --rebase-merges [commit]` will preserve merge commits
